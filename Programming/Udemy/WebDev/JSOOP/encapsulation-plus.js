@@ -67,9 +67,70 @@ console.log(myBird.fly());
 console.log(myPenguin.fly());
 
 // Static methods
-// These just make the methods inaccesible through new objects
-// Meaning the only way to access them, is through the object it was declared in
-// You can't use extensions
+// Defines to class itself, not objects created FROM the class
+// The class owns it
+
+class MathUtil{
+    static PI = 3.141592;
+
+    constructor(utils){
+        this.utils = utils;
+    }
+}
+
+var newUtil = new MathUtil(5);
+
+console.log(newUtil.PI); // Returns UNDEFINED (It's class defined)
+console.log(newUtil.utils); // Returns 5 (It's from the object)
 
 // Getters and Setters
 // Allow for more control
+// Getters are special methods that make properties readable
+// Setteres are special methods that make a property writtable
+// Allow validation and modification of values when reading/writing properties
+
+class Rectangle{
+
+    constructor(width, height){
+        this.width = width;
+        this.height = height;
+    }
+
+    set width(newWidth){
+        if(newWidth > 0){
+            this._width = newWidth; // using "_" before a property name, is the standard for naming private properties
+        }
+        else{
+            console.error("Width must be a positive number")
+        }
+    }
+
+    set height(newHeight){
+        if(newHeight > 0){
+            this._height = newHeight;
+        }
+        else{
+            console.error("Height must be a positive number");
+        }
+    }
+
+    get width(){
+        return this._width
+    }
+
+    get height(){
+        return this._height
+    }
+}
+
+const newRec = new Rectangle(-9999, "pizza")
+console.log(newRec); // Shows item info
+
+console.log(newRec.height); // Not readable
+console.log(newRec.width); // Not readable
+
+const readableRectangle = new Rectangle(20, 10)
+
+console.log(readableRectangle.height); // Readable
+console.log(readableRectangle.width); // Readable
+
