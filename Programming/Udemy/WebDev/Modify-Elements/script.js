@@ -44,3 +44,53 @@ const removableList = document.getElementById("taskList");
 removeButton.addEventListener("click", ()=>{
     removableList.lastElementChild.remove();
 })
+
+const eventButton = document.getElementById("clickMeButton");
+
+// (5)
+
+eventButton.addEventListener("mouseover", ()=>{
+    alert("You're hovering me!")
+})
+
+// (6)
+
+const eventList = document.getElementById("teaList");
+
+eventList.addEventListener("click", function(event){
+    if(event.target.matches(".teaItem")){
+        alert(`You selected ${event.target.textContent}`)
+    }
+})
+
+// (7)
+
+const myForm = document.getElementById("feedbackForm")
+const toBeChangedText = document.getElementById("example-8")
+
+myForm.addEventListener("submit", ()=>{
+    console.log("Submitted!");
+    toBeChangedText.textContent = "Submitted my friend"
+})
+
+// (8)
+
+const domText = document.getElementById("domStatus")
+
+document.addEventListener("DOMContentLoaded", ()=>{
+    domText.textContent = "DOM has loaded succesfuly"
+})
+
+// (9)
+
+const toggleButton = document.getElementById("toggleHighlight")
+const toggleText = document.getElementById("descriptionText")
+
+toggleButton.addEventListener("click", ()=>{
+    if (toggleText.classList.contains("highlight")){
+        toggleText.classList.remove("highlight")
+    }
+    else{
+        toggleText.classList.add("highlight")
+    }
+})
