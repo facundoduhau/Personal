@@ -17,3 +17,7 @@ var response = fetchData();
 console.log(response);
 
 // To know the fetched data status, you can do:
+
+fetchData()
+    .then((data)=>console.log(data))
+    .catch((error)=>console.error(error))
