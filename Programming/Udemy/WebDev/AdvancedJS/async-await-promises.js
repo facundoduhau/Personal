@@ -6,7 +6,7 @@ function fetchUserData(){
     })
 };
 
-fetchUserData // Traditional method
+fetchUserData() // Traditional method
     .then()
     .catch();
 
@@ -21,5 +21,7 @@ async function getUserData() {
         console.log("Error fetching data", error);
     }
 }
+
+getUserData();
 
 // You can send data as rejected by adding literally "reject" before the data

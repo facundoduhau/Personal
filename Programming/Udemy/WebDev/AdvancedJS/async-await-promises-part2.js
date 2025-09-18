@@ -13,3 +13,6 @@ function fetchCommentData(){
         }, 6000);
     });
 }
+
+fetchPostData();
+fetchCommentData();
